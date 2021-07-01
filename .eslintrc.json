@@ -1,0 +1,16 @@
+{
+  "extends": "react-native-wcandillon",
+  "rules": {
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "max-len": [
+      "error",
+      120
+    ]
+  }
+}
