@@ -1,5 +1,4 @@
-import { RequestParameters } from 'relay-runtime/lib/util/RelayConcreteNode';
-import { Variables } from 'relay-runtime/lib/util/RelayRuntimeTypes';
+import { RequestParameters, Variables } from 'relay-runtime';
 
 import { SPACE_X } from '../../shared/constants/services';
 

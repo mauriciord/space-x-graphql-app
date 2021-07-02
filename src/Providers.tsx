@@ -1,5 +1,6 @@
 import React from 'react';
 import { RelayEnvironmentProvider } from 'react-relay';
+import { ThemeProvider } from 'react-native-magnus';
 
 import Environment from './services/relay/Environment';
 
@@ -10,7 +11,7 @@ type Props = {
 const Providers = ({ children }: Props) => {
   return (
     <RelayEnvironmentProvider environment={Environment}>
-      {children}
+      <ThemeProvider>{children}</ThemeProvider>
     </RelayEnvironmentProvider>
   );
 };

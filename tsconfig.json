@@ -1,5 +1,6 @@
 {
   "extends": "eslint-config-react-native-wcandillon/tsconfig.base",
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts", "src/**/__generated__"],
   "compilerOptions": {
     "strict": true
   }

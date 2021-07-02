@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaView, StatusBar } from 'react-native';
+import Constants from 'expo-constants';
 
 import MainRoute from './src/routes/MainRoute';
 import Providers from './src/Providers';
@@ -12,7 +14,12 @@ export default function App(): JSX.Element {
       <ErrorBoundaryRetry>
         <Suspense fallback={<Loading />}>
           <NavigationContainer>
-            <MainRoute />
+            <StatusBar barStyle="dark-content" />
+            <SafeAreaView
+              style={{ flex: 1, marginTop: Constants.statusBarHeight }}
+            >
+              <MainRoute />
+            </SafeAreaView>
           </NavigationContainer>
         </Suspense>
       </ErrorBoundaryRetry>
