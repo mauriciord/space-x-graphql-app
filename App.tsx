@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Suspense } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
+import MainRoute from './src/routes/MainRoute';
+import Providers from './src/Providers';
+import ErrorBoundaryRetry from './src/shared/common/ErrorBoundaryRetry';
+import Loading from './src/shared/common/Loading';
 
 export default function App(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Providers>
+      <ErrorBoundaryRetry>
+        <Suspense fallback={<Loading />}>
+          <NavigationContainer>
+            <MainRoute />
+          </NavigationContainer>
+        </Suspense>
+      </ErrorBoundaryRetry>
+    </Providers>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
