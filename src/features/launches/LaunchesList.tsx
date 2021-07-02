@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import { graphql, useLazyLoadQuery } from 'react-relay';
+import { Div } from 'react-native-magnus';
 
 import { Launch } from './types';
 import { LaunchesListQuery } from './__generated__/LaunchesListQuery.graphql';
@@ -40,16 +41,16 @@ const LaunchesList: React.FC = () => {
 
   const { launchesPast } = response;
 
-  console.log('launchesPast ___', launchesPast);
-
   return (
-    <FlatList
-      data={launchesPast}
-      keyExtractor={(item: Launch) => `${item.id}_${item.mission_name}`}
-      renderItem={({ item }: { item: Launch }) => (
-        <LaunchesListItem item={item} />
-      )}
-    />
+    <Div>
+      <FlatList
+        data={launchesPast}
+        keyExtractor={(item: Launch) => `${item.id}_${item.mission_name}`}
+        renderItem={({ item }: { item: Launch }) => (
+          <LaunchesListItem item={item} />
+        )}
+      />
+    </Div>
   );
 };
 

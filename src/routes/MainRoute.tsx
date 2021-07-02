@@ -1,15 +1,27 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import MainScreen from '../screens/MainScreen';
+import { HomeScreen, DetailsScreen } from '../screens';
 
 const Stack = createStackNavigator();
 
 const MainRoute: React.FC = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Main" component={MainScreen} />
-      <Stack.Screen name="Details" component={MainScreen} />
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          header: () => null,
+        }}
+      />
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={({ route }) => ({
+          title: route?.params?.name || 'Details',
+        })}
+      />
     </Stack.Navigator>
   );
 };
